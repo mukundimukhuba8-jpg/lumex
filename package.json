@@ -1,0 +1,49 @@
+{
+  "name": "edgeflow",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.18.16",
+    "@react-navigation/native": "^7.3.16",
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.6",
+    "expo": "~57.0.12",
+    "expo-blur": "~57.0.2",
+    "expo-linear-gradient": "~57.0.1",
+    "expo-status-bar": "~57.0.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react-native": "^1.31.0",
+    "multer": "^2.0.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.2",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "react-native-web": "^0.21.2",
+    "uuid": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/react": "~19.2.2",
+    "@types/uuid": "^10.0.0",
+    "babel-preset-expo": "^57.0.6",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "server": "node server/index.js",
+    "export:web": "expo export --platform web --output-dir dist-web"
+  },
+  "private": true
+}
