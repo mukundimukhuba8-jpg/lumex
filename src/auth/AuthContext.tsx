@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { AppState, Platform } from 'react-native';
 import {
   AccessStatus,
   AuthUser,
@@ -143,7 +144,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       };
     }
 
-    const { AppState } = require('react-native') as typeof import('react-native');
     const sub = AppState.addEventListener('change', (state) => {
       if (state === 'active') void refreshSession();
     });
