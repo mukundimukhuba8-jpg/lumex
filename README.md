@@ -1,25 +1,35 @@
 # LUMEXAI
 
-Expo **React Native** mobile app for iOS and Android (TypeScript).
+Expo **React Native** app for iOS / Android, with an optional **web** build for Vercel.
 
-## Run the app (React Native)
+## Mobile (React Native)
 
 ```bash
 npm install
 npx expo start
 ```
 
-Then press:
-- `a` for Android emulator / device
-- `i` for iOS simulator / device
-- scan the QR code with Expo Go
+- `a` → Android  
+- `i` → iOS  
 
-## API server (backend only)
+## Website (Vercel)
 
-The `server/` folder is a Node API used by the mobile app. It is **not** the UI.
+This repo is configured for Vercel **static web** export (not a downloadable app file).
+
+1. In Vercel → Project Settings → General:
+   - Framework Preset: **Other**
+   - Build Command: `npx expo export --platform web` (from `vercel.json`)
+   - Output Directory: `dist`
+2. Redeploy
+3. **Visit** should open the website in the browser
+
+Local web preview:
 
 ```bash
-npm run server
+npm run build:web
+npx serve dist
 ```
 
-Set `EXPO_PUBLIC_API_URL` to your API URL when testing on a physical device.
+## API server
+
+`server/` is a Node API for licenses/admin. It does **not** run on Vercel static hosting — host it separately (Railway, Render, VPS, etc.) and set `EXPO_PUBLIC_API_URL`.
