@@ -10,10 +10,10 @@ into `/agent/lumex/` (original on-disk path was `/agent/edgeflow/`).
 
 | Metric | Value |
 |--------|-------|
-| Recovered files (total) | **65** |
-| Source / config (ts/tsx/js/json/css-less) | **56** |
+| Recovered files (total) | **66** |
+| Source / config (ts/tsx/js/json) | **56** |
 | Asset placeholders (1×1 PNG) | **7** |
-| Misc (`.gitkeep`, `PLACEHOLDER.md`, this file) | **2** |
+| Misc (`.gitkeep`, `PLACEHOLDER.md`, this file) | **3** |
 
 Method: stream-parse transcript `search_replace` diffs + full `read_file` snapshots + shell heredocs. Applied chronologically with special handling for the mid-run wipe (`create-expo-app` ~msg 1349) and `/tmp/edgeflow-recovery` restore (~msg 1425) by replaying the pre-wipe tree as the restore base, then applying later patches. **0 skipped hunks** in the final pass.
 
