@@ -129,16 +129,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [refreshSession]);
 
   useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const onVis = () => {
-      if (document.visibilityState === 'visible') void refreshSession();
-    };
-    document.addEventListener('visibilitychange', onVis);
+    if (Platform.OS === 'web' && typeof document !== 'undefined') {
+      const onVis = () => {
+        if (document.visibilityState === 'visible') void refreshSession();
+      };
+      document.addEventListener('visibilitychange', onVis);
+      const timer = setInterval(() => {
+        void refreshSession();
+      }, 12000);
+      return () => {
+        document.removeEventListener('visibilitychange', onVis);
+        clearInterval(timer);
+      };
+    }
+
+    const { AppState } = require('react-native') as typeof import('react-native');
+    const sub = AppState.addEventListener('change', (state) => {
+      if (state === 'active') void refreshSession();
+    });
     const timer = setInterval(() => {
       void refreshSession();
     }, 12000);
     return () => {
-      document.removeEventListener('visibilitychange', onVis);
+      sub.remove();
       clearInterval(timer);
     };
   }, [refreshSession]);

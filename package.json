@@ -1,7 +1,15 @@
 {
-  "name": "edgeflow",
+  "name": "lumexai",
   "version": "1.0.0",
   "main": "index.ts",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "server": "node server/index.js"
+  },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^7.18.16",
     "@react-navigation/native": "^7.3.16",
@@ -10,6 +18,7 @@
     "cors": "^2.8.6",
     "expo": "~57.0.12",
     "expo-blur": "~57.0.2",
+    "expo-image-picker": "~17.0.8",
     "expo-linear-gradient": "~57.0.1",
     "expo-status-bar": "~57.0.1",
     "express": "^5.2.1",
@@ -36,14 +45,5 @@
     "@types/uuid": "^10.0.0",
     "babel-preset-expo": "^57.0.6",
     "typescript": "~6.0.3"
-  },
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "server": "node server/index.js",
-    "export:web": "expo export --platform web --output-dir dist-web"
-  },
-  "private": true
+  }
 }
